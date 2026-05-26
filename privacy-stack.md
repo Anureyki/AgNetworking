@@ -58,6 +58,21 @@ All grower data is protected before it enters the AI training pipeline:
 
 Growers retain ownership. The network learns from patterns, not private records.
 
+## Current Implementation Status
+
+As of May 26, 2026, the following privacy stack components are installed and verified in a Python virtual environment (`~/AgTechAI/venv`):
+
+| Component | Version / Status | Verification |
+|-----------|------------------|--------------|
+| `diffprivlib` | Installed | `import diffprivlib` succeeds |
+| `adversarial-robustness-toolbox` (ART) | Installed | `from art.attacks import evasion` succeeds |
+| `packaging` (ART dependency) | Installed | Required for ART to function |
+| PyTorch | Not installed | Optional warning appears; not needed for MVP |
+
+The environment is ready for the next phase: anonymizing mycology logs and training the first privacy‑preserving model.
+
+For the full installation log, see `logs/setup-log.md` in this repository.
+
 ## Next Steps
 1. Complete DLI certification (GPU expertise)
 2. Set up an on‑prem GPU server (rented or owned)
