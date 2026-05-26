@@ -1,0 +1,1 @@
+/home/anureyki/AgTechAI/setup-log.md
