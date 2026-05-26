@@ -87,10 +87,10 @@ By 2030, this platform aims to be:
 ## The Mermaid Diagram
 
 See `ecosystem.md` in this repo for the full visual diagram.
-
+**View the full ecosystem diagram:** [Complete AgTech AI + Tokenomics Ecosystem](https://github.com/Anureyki/AgNetworking/blob/main/ecosystem.md)
 ## Next Steps
 
-1. Complete certification roadmap (see `cert-roadmap.md`)
+1. Complete certification roadmap (see `cert-roadmap.md`)**View the certification roadmap:** [Digital Finance & Tokenomics Roadmap](https://github.com/Anureyki/AgNetworking/blob/main/cert-roadmap.md)
 2. Build MVP AI using my own grow data (private repo)
 3. Launch token on testnet
 4. Onboard first 10 growers
