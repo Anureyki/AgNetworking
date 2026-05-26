@@ -99,6 +99,19 @@ By 2030, this platform aims to be:
 5. DAO launch
 6. Public token sale
 
+## The Three Data Streams
+
+### 1. Global Library (RAG System)
+The AI continuously ingests scientific literature, government studies, and vetted cultivation guides. This provides the *theory* — optimal temperature, humidity, substrate, pH, etc. — for any species.
+
+### 2. Network Data (Tokenized Streams)
+Growers contribute anonymized, tokenized grow logs: sensor data, yields, contamination events, manual observations. This is the *evidence* — what actually happens in real tents and farms.
+
+### 3. Local Stream (Per‑Grower Context)
+Each grower's own data remains private unless they choose to share it (via token incentives). The AI uses it to personalize recommendations: *"Global research says 31°C, but your tent with your substrate performs better at 28°C."*
+
+## The Intelligence Layer
+The AI compares the **Global Library** (theory) against the **Network Data** (evidence) to continuously improve predictions. It then personalizes recommendations for each **Local Stream**. This is the learning economy in action.
 ## Related Repos
 
 - [Sys_Admin.projects](https://github.com/Anureyki/Sys_Admin.projects) — Infrastructure foundation
