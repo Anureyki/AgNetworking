@@ -98,9 +98,10 @@ See `ecosystem.md` in this repo for the full visual diagram.
 6. Public token sale
 
 ## Related Repos
-- `Sys_Admin.projects` — Infrastructure foundation
-- `Mycology-Lab` — Real grow logs (source of training data)
-- `Linux-Plus-Study` — Certification prep
+
+- [Sys_Admin.projects](https://github.com/Anureyki/Sys_Admin.projects) — Infrastructure foundation
+- [Mycology-Lab](https://github.com/Anureyki/Mycology-Lab) — Real grow logs (source of training data)
+- [Linux-Plus-Study](https://github.com/Anureyki/Linux-Plus-Study) — Certification prep
 
 ---
 *This is not a white paper. It's a living document. The system will evolve as I learn.*
