@@ -48,6 +48,16 @@ This document outlines the privacy‑preserving math and software stack that pow
 - `cert-roadmap.md` — The learning path that enables this stack
 - `ecosystem.md` — Visual diagram of the full system
 
+## Privacy for Network Data
+
+All grower data is protected before it enters the AI training pipeline:
+
+- **Differential privacy** (Diffprivlib) — Mathematical noise ensures individual grows cannot be identified.
+- **Anonymization** (AI Privacy Toolkit) — Removes PII before tokenization.
+- **Adversarial defense** (ART) — Prevents attackers from reverse‑engineering training data.
+
+Growers retain ownership. The network learns from patterns, not private records.
+
 ## Next Steps
 1. Complete DLI certification (GPU expertise)
 2. Set up an on‑prem GPU server (rented or owned)
