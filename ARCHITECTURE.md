@@ -3,10 +3,10 @@
 ```mermaid
 graph TD
     subgraph "Grower Node (Rocky Linux USB)"
-        A[Sensor CSV] -->|watch folder| B[encrypt_and_send.py]
-        B -->|encrypt + sign| C[Encrypted Blob]
-        C -->|IPFS add| D[IPFS Node (private swarm)]
-        D -->|publish CID| E[DID Document (IPFS)]
+        A[Sensor CSV] -- watch folder --> B[encrypt_and_send.py]
+        B -- encrypt + sign --> C[Encrypted Blob]
+        C -- IPFS add --> D[IPFS Node (private swarm)]
+        D -- publish CID --> E[DID Document (IPFS)]
     end
 
     subgraph "Ubuntu Server (Central Bootstrap)"
@@ -18,15 +18,15 @@ graph TD
     end
 
     subgraph "IPFS Private Swarm"
-        D -->|swarm.key| F
+        D -- swarm.key --> F
     end
 
     subgraph "Data & Identity Flow"
-        C -->|retrieve| G
-        E -->|resolve| H
-        H -->|verify signature| G
-        G -->|proof of contribution| I
-        I -->|AG tokens| K[Grower Wallet (DID)]
+        C -- retrieve --> G
+        E -- resolve --> H
+        H -- verify signature --> G
+        G -- proof of contribution --> I
+        I -- AG tokens --> K[Grower Wallet (DID)]
     end
 
     subgraph "Key Technologies"
@@ -40,13 +40,6 @@ graph TD
     H -.-> M
     H -.-> N
     F -.-> O
-
-    style A fill:#2d5016,stroke:#4a7c24,color:#fff
-    style C fill:#f5a623,stroke:#d48c1a,color:#000
-    style E fill:#3b82f6,stroke:#2563eb,color:#fff
-    style I fill:#f5a623,stroke:#d48c1a,color:#000
-    style K fill:#16a34a,stroke:#1e7e34,color:#fff
-    style F fill:#7b2d8e,stroke:#9b4dae,color:#fff
 ```
 
 ## Components Overview
