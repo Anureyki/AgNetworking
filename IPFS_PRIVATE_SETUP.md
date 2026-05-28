@@ -114,3 +114,52 @@ python encrypt_and_send.py
 
 - The private swarm key (`~/.ipfs/swarm.key`) must be shared with any other node (e.g., grower's node) for them to join the network.
 - All data added to IPFS is automatically chunked and distributed only among peers that possess the same swarm key.
+
+## Private Network Troubleshooting & Final Configuration
+
+### Problem
+After creating `swarm.key`, IPFS failed to start with errors:
+- `expected file header /key/swarm/psk/1.0.0/`
+- `AutoConf cannot use default mainnet URL on a private network`
+- `Routing.DelegateedRouters contains auto but AutoConf.Enabled=false`
+- `AutoTLS not compatible with private network`
+
+### Root Cause
+- `swarm.key` was missing the required header line.
+- Default routing and AutoTLS settings attempt public internet connections, which fail on a private network.
+
+### Fix Commands
+```bash
+# 1. Create properly formatted swarm.key
+cp ~/.ipfs/swarm.key ~/.ipfs/swarm.key.bak
+echo "/key/swarm/psk/1.0.0/" > ~/.ipfs/swarm.key
+echo "/base64/" >> ~/.ipfs/swarm.key
+openssl rand -base64 32 >> ~/.ipfs/swarm.key
+chmod 600 ~/.ipfs/swarm.key
+
+# 2. Disable AutoTLS (incompatible with private network)
+ipfs config --bool AutoTLS.Enabled false
+
+# 3. Set routing to explicit DHT (not auto)
+ipfs config Routing.Type dht
+
+# 4. Clear delegated routers and IPNS publishers
+ipfs config --json Routing.DelegatedRouters '[]'
+ipfs config --json Ipns.DelegatedPublishers '[]'
+
+# 5. Restart and verify
+sudo systemctl restart ipfs
+sudo systemctl status ipfs
+```
+
+### Verification
+```bash
+sudo journalctl -u ipfs -n 20 --no-pager | grep -i error
+# Should return no errors. Final line should contain "Daemon is ready".
+```
+
+### Current Status
+- ✅ IPFS daemon runs without errors on private network.
+- ✅ `swarm.key` is correctly formatted with header.
+- ✅ AutoTLS disabled, routing forced to DHT, delegated routers cleared.
+- ✅ Gateway on port 9090, API on 5001.
