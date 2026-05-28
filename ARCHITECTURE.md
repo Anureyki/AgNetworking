@@ -3,37 +3,37 @@
 ```mermaid
 graph TD
     subgraph "Grower Node (Rocky Linux USB)"
-        A[Sensor CSV] -- watch folder --> B[encrypt_and_send.py]
-        B -- encrypt + sign --> C[Encrypted Blob]
-        C -- IPFS add --> D[IPFS Node (private swarm)]
-        D -- publish CID --> E[DID Document (IPFS)]
+        A["Sensor CSV"] -->|watch folder| B["encrypt_and_send.py"]
+        B -->|encrypt + sign| C["Encrypted Blob"]
+        C -->|IPFS add| D["IPFS Node (private swarm)"]
+        D -->|publish CID| E["DID Document (IPFS)"]
     end
 
     subgraph "Ubuntu Server (Central Bootstrap)"
-        F[IPFS Node (private swarm)]
-        G[AI Training Pipeline]
-        H[DID Resolver + ZKP Verifier]
-        I[Token Reward Smart Contract]
-        J[Pi‑hole / DNS]
+        F["IPFS Node (private swarm)"]
+        G["AI Training Pipeline"]
+        H["DID Resolver + ZKP Verifier"]
+        I["Token Reward Smart Contract"]
+        J["Pi‑hole / DNS"]
     end
 
     subgraph "IPFS Private Swarm"
-        D -- swarm.key --> F
+        D -->|swarm.key| F
     end
 
     subgraph "Data & Identity Flow"
-        C -- retrieve --> G
-        E -- resolve --> H
-        H -- verify signature --> G
-        G -- proof of contribution --> I
-        I -- AG tokens --> K[Grower Wallet (DID)]
+        C -->|retrieve| G
+        E -->|resolve| H
+        H -->|verify signature| G
+        G -->|proof of contribution| I
+        I -->|AG tokens| K["Grower Wallet (DID)"]
     end
 
     subgraph "Key Technologies"
-        L[Diffprivlib / ART]
-        M[DID:cid / did:ipid]
-        N[Zero‑Knowledge Proofs]
-        O[systemd / firewalld]
+        L["Diffprivlib / ART"]
+        M["DID:cid / did:ipid"]
+        N["Zero‑Knowledge Proofs"]
+        O["systemd / firewalld"]
     end
 
     B -.-> L
