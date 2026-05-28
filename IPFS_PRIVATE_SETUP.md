@@ -92,7 +92,10 @@ cd ~/AgTechAI
 source venv/bin/activate
 python encrypt_and_send.py
 ```
-
+## Testing Workflow
+- **Ubuntu (main server)**: rapid prototyping, break/fix, daily development.
+- **Rocky Linux 10 (USB live with persistence)**: production‑validation before any deploy to a permanent Rocky system.
+  
 ## Current Status
 
 - IPFS daemon runs as a systemd service (private swarm).
