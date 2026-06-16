@@ -1,0 +1,10 @@
+{
+  "scans": [
+    {
+      "file": "/tmp/test_safe.txt",
+      "result": "CLEAN",
+      "details": "No threats found",
+      "timestamp": "2026-06-16T19:02:51Z"
+    }
+  ]
+}
